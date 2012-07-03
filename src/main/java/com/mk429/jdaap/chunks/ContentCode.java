@@ -7,38 +7,42 @@ import java.util.Map;
 
 public enum ContentCode {
 
+    // shell commands to lexically order this by code number
+    // copy from "sort" to "//EOF", run, then fix the semi-colon
+    // sort -t\" -k2,2 <<//EOF
     UNKNOWN("????", "UNKNOWN", ChunkData.class),
-    ITEM_ID("miid", "dmap.itemid", LongData.class),
-    ITEM_NAME("minm", "dmap.itemname", StringData.class),
-    ITEM_KIND("mikd", "dmap.itemkind", LongData.class),
-    PERSISTENT_ID("mper", "dmap.persistentid", LongData.class),
+    DAAP_PROTOCOL_VERSION("apro", "daap.protocolversion", VersionData.class),
+    BAG("mbcl", "dmap.bag", ContainerData.class),
     CONTAINER("mcon", "dmap.container", ContainerData.class),
-    CONTAINER_ITEM_ID("mcti", "dmap.containeritemid", LongData.class),
-    PARENT_CONTAINER_ID("mpco", "dmap.parentcontainerid", LongData.class),
-    STATUS("mstt", "dmap.status", LongData.class),
-    STATUS_STRING("msts", "dmap.statusstring", StringData.class),
-    ITEM_COUNT("mimc", "dmap.itemcount", LongData.class),
     CONTAINER_COUNT("mctc", "dmap.containercount", LongData.class),
-    RETURNED_COUNT("mrco", "dmap.returnedcount", LongData.class),
-    SPECIFIED_TOTAL_COUNT("mtco", "dmap.specifiedtotalcount", LongData.class),
+    CONTAINER_ITEM_ID("mcti", "dmap.containeritemid", LongData.class),
+    DICTIONARY("mdcl", "dmap.dictionary", ContainerData.class),
+    ITEM_ID("miid", "dmap.itemid", LongData.class),
+    ITEM_KIND("mikd", "dmap.itemkind", LongData.class),
+    ITEM_COUNT("mimc", "dmap.itemcount", LongData.class),
+    ITEM_NAME("minm", "dmap.itemname", StringData.class),
     LISTING("mlcl", "dmap.listing", ContainerData.class),
     LISTING_ITEM("mlit", "dmap.listingitem", ContainerData.class),
-    BAG("mbcl", "dmap.bag", ContainerData.class),
-    DICTIONARY("mdcl", "dmap.dictionary", ContainerData.class),
-    SERVER_INFO_RESPONSE("msrv", "dmap.serverinforesponse", ContainerData.class),
-    AUTHENTICATION_METHOD("msau", "dmap.authenticationmethod", LongData.class),
-    LOGIN_REQUIRED("mslr", "dmap.loginrequired", LongData.class),
+    PARENT_CONTAINER_ID("mpco", "dmap.parentcontainerid", LongData.class),
+    PERSISTENT_ID("mper", "dmap.persistentid", LongData.class),
     DMAP_PROTOCOL_VERSION("mpro", "dmap.protocolversion", VersionData.class),
-    DAAP_PROTOCOL_VERSION("apro", "daap.protocolversion", VersionData.class),
+    RETURNED_COUNT("mrco", "dmap.returnedcount", LongData.class),
     SUPPORTS_AUTO_LOGIN("msal", "dmap.supportsautologout", LongData.class),
-    SUPPORTS_UPDATE("msup", "dmap.supportsupdate", LongData.class),
-    SUPPORTS_PERSISTENT_IDS("mspi", "dmap.supportspersistentids", LongData.class),
+    AUTHENTICATION_METHOD("msau", "dmap.authenticationmethod", LongData.class),
+    SUPPORTS_BROWSE("msbr", "dmap.supportsbrowse", LongData.class),
+    DATABASE_COUNT("msdc", "dmap.databasescount", LongData.class),
     SUPPORTS_EXTENSIONS("msex", "dmap.supportsextensions", LongData.class),
     SUPPORTS_INDEX("msix", "dmap.supportsindex", LongData.class),
-    SUPPORTS_BROWSE("msbr", "dmap.supportsbrowse", LongData.class),
+    LOGIN_REQUIRED("mslr", "dmap.loginrequired", LongData.class),
+    SUPPORTS_PERSISTENT_IDS("mspi", "dmap.supportspersistentids", LongData.class),
     SUPPORTS_QUERY("msqy", "dmap.supportsquery", LongData.class),
-    DATABASE_COUNT("msdc", "dmap.databasescount", LongData.class),
-    TIMEOUT_INTERVAL("mstm", "dmap.timeoutinterval", LongData.class);
+    SERVER_INFO_RESPONSE("msrv", "dmap.serverinforesponse", ContainerData.class),
+    TIMEOUT_INTERVAL("mstm", "dmap.timeoutinterval", LongData.class),
+    STATUS_STRING("msts", "dmap.statusstring", StringData.class),
+    STATUS("mstt", "dmap.status", LongData.class),
+    SUPPORTS_UPDATE("msup", "dmap.supportsupdate", LongData.class),
+    SPECIFIED_TOTAL_COUNT("mtco", "dmap.specifiedtotalcount", LongData.class);
+//EOF
     public String contentCodesNumber, contentCodesName;
     public Class<? extends ChunkData> dataType;
 
